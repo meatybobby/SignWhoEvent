@@ -1,0 +1,6 @@
+npm-debug.log
+node_modules
+data
+
+start_mongodb.bat
+start_server.bat

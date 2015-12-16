@@ -1,0 +1,28 @@
+
+
+	<div class="page-header text-center">
+		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
+		<a href="#/"><i class="fa fa-th-list"></i> 回到活動列表</a>
+		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+	</div>
+
+	<div class="row">
+
+		<!-- FACEBOOK INFORMATION -->
+		<div class="col-sm-6">
+			<div class="well">
+				<h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
+				
+					<img ng-src="https://graph.facebook.com/{{ user.fbid }}/picture?width=150&heigh=150&access_token={{ user.token }}">
+					<p>
+						<strong>id</strong>: {{ user.fbid }}<br>
+						<strong>token</strong>: {{ user.token }}<br>
+						<strong>email</strong>: {{ user.email }}<br>
+						<strong>name</strong>: {{ user.name }}
+					</p>
+
+			</div>
+		</div>
+
+	</div>
+

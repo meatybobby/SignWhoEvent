@@ -1,0 +1,11 @@
+
+
+	<br>
+	<a href="#/"><i class="fa fa-th-list"></i> 回到活動列表</a>
+	<h1>{{event.title}}</h1>
+	<p><strong>活動日期：{{event.date | date:'yyyy-MM-dd'}}</strong></p>
+	<p style="white-space: pre;">{{event.content}}</p>
+	
+	<p>作者：{{event.username}}</p>
+	<p>於 {{ event.timestamp | date:'yyyy-MM-dd HH:mm' }} 發表</p>
+	 <button ng-show="loggedIn && user.fbid==event.userid" class="btn"  ng-click="remove(event._id)"  ng-confirm-click="確定刪除該活動?">刪除活動</button>

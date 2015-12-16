@@ -1,0 +1,70 @@
+
+  <h2>活動</h2>
+
+
+ <a href="#/new" ng-if="loggedIn"><button class="btn waves-effect blue">新增活動</button></a>
+
+  <div class="row">
+        <div class="col s12 m4"  ng-repeat="event in events">
+          <!-- Modal Structure -->
+          <div id="modal-{{event._id}}" class="modal">
+            <div class="modal-content">
+              <h4>{{event.title}}</h4>
+              <p><strong>活動日期：{{event.date | date:'yyyy-MM-dd'}}</strong></p>
+              <p style="white-space: pre;">{{event.content}}</p>
+              <div class="divider"></div>
+              <p>{{event.username}}</p>
+              <p>於 {{ event.timestamp | date:'yyyy-MM-dd HH:mm' }} 發表</p>
+            </div>
+            <div class="modal-footer">
+               
+              <button ng-show="loggedIn && user.fbid==event.userid" class="btn materialize-red lighten-1 waves-effect"  ng-click="remove(event._id)"  ng-confirm-click="確定刪除該活動?">刪除活動</button>
+              <button ng-show="loggedIn && user.fbid==event.userid" class="btn waves-effect"  ng-click="edit(event._id)">編輯</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-image">
+              <!--a ng-href="#/event/{{event._id}}"-->
+              <a ng-click="openEvent(event._id)" class="modal-trigger" style="cursor: pointer">
+                <img src="img/03.png">
+                <span class="card-title">{{event.title}}</span>
+              </a>
+            </div>
+            <div class="card-content">
+              <p>活動日期：{{event.date | date:'yyyy-MM-dd'}}</p>
+              <p>{{event.content | limitTo: 100}}...</p>
+            </div>
+            <div class="card-action">
+              <a>{{event.username}}</a>
+            </div>
+          </div>
+        </div>
+
+       
+  </div>
+
+  <!--table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>         
+        <th>Content</th>
+        <th>Date</th>
+        <th>User name</th>
+        <th>PostTime</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="event in events">
+        <td>{{event.title}}</td>
+    	  <td>{{event.content}}</td>
+        <td>{{event.date | date:'yyyy-MM-dd'}}</td>
+    	  <td>{{event.username}}</td>
+        <td>{{ event.timestamp | date:'yyyy-MM-dd HH:mm' }}</td>
+        <td ng-show="loggedIn && user.fbid==event.userid">
+          <button class="btn btn-danger" ng-click="remove(event._id)">Remove</button>
+        </td>
+        <td><button class="btn btn-warning" ng-click="edit(event._id)">Edit</button></td>
+      </tr>
+    </tbody>
+  </table-->

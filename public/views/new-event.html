@@ -1,0 +1,57 @@
+
+  
+  <h2>新增活動</h2>
+<a href="#/"><i class="fa fa-th-list"></i> 回到活動列表</a>
+
+   <div class="row" style="margin-top: 15px;">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col m6">
+          <input id="event_title" type="text" class="validate" ng-model="event.title">
+          <label for="event_title">標題</label>
+        </div>
+        <div class="input-field col m6">
+          <input id="event_date" type="date" class="datepicker" ng-model="event.date">
+          <label for="event_date">活動日期</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="file-field input-field col s12">
+          <div class="btn green lighten-3">
+            <span>圖片</span>
+            <input type="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+         </div>
+      </div>
+      <div class="row">
+            <div class="input-field col s12">
+              <textarea id="textarea1" class="materialize-textarea" ng-model="event.content"></textarea>
+              <label for="textarea1">活動內容</label>
+            </div>
+      </div>
+      <button class="btn waves-effect" ng-click="addEvent()">送出</button>
+    </form>
+  </div>
+  
+
+<script>
+$(function() {
+  $('.datepicker').pickadate({
+    format: "yyyy-mm-dd",
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+});
+/*  $(function() {
+    $('#datepicker').datepicker({
+        format: "yyyy-mm-dd",
+        weekStart: 7,
+        language: "zh-TW",
+       // autoclose: true,
+        todayHighlight: true
+    });
+  });*/
+</script>
